@@ -1,0 +1,95 @@
+#caja-resumen {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 120px;
+    background-color: #fff;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    -webkit-box-shadow: 0px -5px 28px -21px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -5px 28px -21px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px -5px 28px -21px rgba(0, 0, 0, 0.75);
+}
+
+#caja-resumen p {
+    margin-bottom: 0;
+}
+
+.resumen-itinerario .tramo:first-child {
+    margin-bottom: .75rem;
+}
+
+.resumen-itinerario .tramo p.titulo {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+#caja-resumen .precio-pax {
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: #0079cc;
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+#caja-resumen .resumen-desglose .item p {
+    font-weight: bold;
+}
+
+#caja-resumen .resumen-desglose .item p span {
+    font-weight: normal;
+}
+
+#caja-resumen .cont-btn-next {
+    text-align: center;
+}
+
+#caja-resumen .precio-final {
+    text-align: center;
+    color: #0079cc;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+#caja-resumen #precio-final-cifra {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+
+/* MODAL RESUMEN EXPANDIDO */
+#modalResumen .modal-header {
+    box-shadow: none;
+}
+
+#modalResumen .bqb-grid-fares .fares-cluster .cluster-main,
+.bqb-grid-fares .fares-cluster .cluster-categories {
+    box-shadow: none;
+}
+
+/* FIN MODAL RESUMEN EXPANDIDO */
+
+button#toggle-expandir {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    background-color: #fff;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    top: -29px;
+    border: none;
+    left: calc(50% - 25px);
+}
+
+#toggle-expandir::after {
+    border: 39px solid #3a93d0;
+    border-top-width: 15px;
+    border-color: #3a93d0 transparent transparent transparent;
+    position: absolute;
+    top: 50px;
+    content: '';
+}

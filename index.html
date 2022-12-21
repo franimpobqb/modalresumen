@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.buquebus.com/Portal/resources/Bqb/css/portal-core.css?v=1.10.10">
+    <script src="https://www.buquebus.com/Portal/resources/js/lib/jQuery/jquery-3.5.0.min.js?version=1.10.10"></script>
+    <link rel="stylesheet" href="https://www.buquebus.com/resources_portal/Bqb/resources/css/styles_bqb.css?v=1.10.10">
+    <link rel="stylesheet" href="modalresumen.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <section>
+        <img src="desktop.png" alt="">
+    </section>
+
+    <section id="caja-resumen">
+        <button class="btn" id="toggle-expandir" data-bs-toggle="modal" data-bs-target="#modalResumen">
+
+        </button>
+
+        <div class="bqb-container">
+            <div class="bqb-row">
+                <div class="bqb-col-md-6">
+                    <div class="bqb-row">
+                        <div class="bqb-col-md-6 resumen-itinerario">
+                            <div class="tramo">
+                                <p class="titulo">Ida</p>
+                                <p>Buenos Aires - Montevideo / 06-12-2022 / 07:30hs</p>
+                            </div>
+                            <div class="tramo">
+                                <p class="titulo">Vuelta</p>
+                                <p>Seleccione la vuelta</p>
+                            </div>
+                        </div>
+                        <div class="bqb-col-md-6 resumen-precio">
+                            <p><strong>Precio por adulto</strong></p>
+                            <p class="precio-pax">ARS 27.540</p>
+                            <p>2 adultos / 1 menor / 1 infante / 1 vehículo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bqb-col-md-6">
+                    <div class="bqb-row">
+                        <div class="bqb-col-md-6 resumen-desglose">
+                            <div class="item">
+                                <p> 2 adultos <span id="price-suma-adultos">ARS 50.282</span></p>
+                            </div>
+                            <div class="item">
+                                <p> 2 menores <span id="price-suma-menores">ARS 50.282</span></p>
+                            </div>
+                            <div class="item">
+                                <p> 2 infantes <span id="price-suma-infantes">ARS 50.282</span></p>
+                            </div>
+                            <div class="item">
+                                <p> 2 vehículos <span id="price-suma-vehiculos">ARS 50.282</span></p>
+                            </div>
+                            <div class="item">
+                                <p> Impuestos / Tasas <span id="price-suma-impuestos">ARS 50.282</span></p>
+                            </div>
+                        </div>
+
+                        <div class="offset-xl-1 bqb-col-xl-5 resumen-comprar">
+                            <div class="precio-final">
+                                <p>Precio final</p>
+                                <p>
+                                    <div id="precio-final-cifra">ARS 60.540</div>
+                                </p>
+                            </div>
+                            <div class="cont-btn-next">
+                                <a href="#">
+                                    <button id="" disabled class="button-primary "
+                                        type="button"> Comprar </button>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalResumen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalle de viaje</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="bqb-grid-fares">
+                        <div class="fares-cluster">
+                            <div class="cluster-main">
+                                <div class="main-body">
+                                    <div class="body-times"><span>13:46hs.</span><span class="times-icon"><i
+                                                class="bqb-icon-bus" aria-hidden="true"></i></span><span
+                                            class="times-line line-bus"></span><span class="times-icon icon-ship"><i
+                                                class="bqb-icon-boarding-info" aria-hidden="true"></i></span><span
+                                            class="times-line line-ship"></span><span
+                                            class="times-dot"></span><span>18:16hs.</span></div>
+                                    <ul class="body-legs">
+                                        <li>Montevideo</li>
+                                        <li>Colonia</li>
+                                        <li>Buenos Aires</li>
+                                    </ul>
+                                    <div class="body-details">Bus a Colonia + Buque Rápido a Buenos Aires<br>4hs 30min
+                                    </div>
+                                    <div class="main-cta">
+                                        <div class="cta-price">
+                                            <div class="price-product"><i
+                                                    class="bqb-icon-passengers bqb-icon-margin-right-md"
+                                                    aria-hidden="true"></i><span>desde</span> <span
+                                                    class="price-number">ARS
+                                                    10464</span></div>
+                                        </div><i class="bqb-icon-margin-left bqb-icon-chevron-down"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bqb-grid-fares">
+                        <div class="fares-cluster">
+                            <div class="cluster-main">
+                                <div class="main-body">
+                                    <div class="mje-eco"><span><img
+                                                src="https://www.buquebus.com/Portal/resources/Bqb/eco.svg">Elección
+                                            Verde: Menor emisión de CO2</span><a
+                                            href="/Portal/BqbARG/landing/informacion/sustentabilidad"
+                                            target="_blank">Más info</a></div>
+                                    <div class="body-times"><span>11:00hs.</span><span class="times-icon icon-ship"><i
+                                                class="bqb-icon-boarding-info" aria-hidden="true"></i></span><span
+                                            class="times-line line-ship"></span><span
+                                            class="times-dot"></span><span>13:45hs.</span></div>
+                                    <ul class="body-legs">
+                                        <li>Montevideo</li>
+                                        <li>Buenos Aires</li>
+                                    </ul>
+                                    <div class="body-details">Buque Francisco a Buenos Aires 2hs 45min</div>
+                                    <div class="main-cta">
+                                        <div class="cta-price">
+                                            <div class="price-product"><i
+                                                    class="bqb-icon-passengers bqb-icon-margin-right-md"
+                                                    aria-hidden="true"></i><span>desde</span> <span
+                                                    class="price-number">ARS 22150</span></div>
+                                        </div><i class="bqb-icon-margin-left bqb-icon-chevron-down"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script
+        src="https://www.buquebus.com/Portal/resources/Bqb/js/bootstrap.bundle.min.js;jsessionid=EDC970C259ACD114353AE8BCF5714AA4?version=1.10.10"
+        async defer></script>
+</body>
+
+</html>
