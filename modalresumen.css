@@ -1,4 +1,4 @@
-#caja-resumen {
+#cluster-resumen {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -26,7 +26,7 @@
     -o-transform: translateY(calc(100% + 30px));
 }
 
-#caja-resumen.active {
+#cluster-resumen.active {
     transform: translateY(0);
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
@@ -40,21 +40,21 @@
     margin-bottom: 1.5rem;
 }
 
-#caja-resumen p {
+#cluster-resumen p {
     margin-bottom: 0;
 }
 
-.resumen-itinerario .tramo:first-child {
+.resumen-itinerario .itinerario-tramo:first-child {
     margin-bottom: .75rem;
 }
 
-.resumen-itinerario .tramo p.titulo {
+.resumen-itinerario  .tramo .titulo {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0;
 }
 
-#caja-resumen .precio-pax {
+#cluster-resumen .precio-pax {
     font-weight: bold;
     font-size: 2.2rem;
     color: #0079cc;
@@ -62,26 +62,26 @@
     margin-bottom: 2rem;
 }
 
-#caja-resumen .resumen-desglose .item p {
+#cluster-resumen .resumen-desglose .item p {
     font-weight: bold;
 }
 
-#caja-resumen .resumen-desglose .item p span {
+#cluster-resumen .resumen-desglose .item p span {
     font-weight: normal;
 }
 
-#caja-resumen .cont-btn-next {
+#cluster-resumen .cont-btn-next {
     text-align: center;
 }
 
-#caja-resumen .precio-final {
+#cluster-resumen .precio-final {
     text-align: center;
     color: #0079cc;
     font-size: 1.6rem;
     font-weight: bold;
 }
 
-#caja-resumen #precio-final-cifra {
+#cluster-resumen #precio-final-cifra {
     font-size: 2rem;
     margin-bottom: .5rem;
 }
@@ -93,13 +93,25 @@
     max-width: 100%;
 }
 
+.price-detail-item-ammount {
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+
 /* MODAL RESUMEN EXPANDIDO */
 #modalResumen .modal-header {
     box-shadow: none;
+    padding: 1rem 1.5rem;
 }
+
+#modalResumen .modal-header h5 {
+    font-weight: bold;
+}
+
 #modalResumen .bqb-grid-fares .fares-cluster .cluster-main {
     padding: 2rem 0;
 }
+
 #modalResumen .bqb-grid-fares .fares-cluster .cluster-main,
 .bqb-grid-fares .fares-cluster .cluster-categories {
     box-shadow: none;
@@ -124,9 +136,14 @@
     font-size: 1.4rem;
 }
 
+.body-tarifa {
+    color: #0079cc;
+    font-weight: bold;
+}
+
 .bqb-price-detail {
     background-color: #F2F2F2;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: .75rem;
     -webkit-border-radius: .75rem;
     -moz-border-radius: .75rem;
@@ -135,7 +152,7 @@
 }
 
 .bqb-price-detail h5 {
-  text-transform: uppercase;
+    text-transform: uppercase;
     color: #0079cc;
     font-size: 1.4rem;
 }
@@ -145,14 +162,34 @@
     justify-content: space-between;
     font-size: 1.4rem;
 }
+
 .price-detail-item-unit {
-    display: flex;
-    gap: .5rem;
+    max-width: 70%;
 }
 
 .price-detail-item-unit .tipo {
     font-weight: bold;
+    margin-right: .5rem;
 }
+
+.price-detail-final {
+    color: #0079cc;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+}
+
+#modalResumen .cont-btn-next {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.modal-dialog-scrollable .modal-body {
+    overflow-y: auto;
+}
+
 /* FIN MODAL RESUMEN EXPANDIDO */
 
 button#toggle-expandir {
@@ -165,7 +202,7 @@ button#toggle-expandir {
     top: -29px;
     border: none;
     left: calc(50% - 25px);
-    box-shadow: 0px -5px 28px -21px rgb(0 0 0 / 75%);
+    box-shadow: rgb(0 0 0 / 15%) 0px -3px 12px;
 }
 
 #toggle-expandir::after {
@@ -193,4 +230,26 @@ button#toggle-expandir:hover {
 
 button#toggle-expandir:hover:after {
     opacity: .75;
+}
+
+.mobile {
+    display: none;
+}
+
+@media(max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+   #cluster-resumen .resumen-itinerario,
+   #cluster-resumen .resumen-desglose,
+   #cluster-resumen .resumen-precio {
+        display: none;
+    }
+
+
 }

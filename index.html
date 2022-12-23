@@ -11,10 +11,19 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet'>
     <link rel="stylesheet" href="https://www.buquebus.com/Portal/resources/Bqb/css/portal-core.css?v=1.10.10">
     <script src="https://www.buquebus.com/Portal/resources/js/lib/jQuery/jquery-3.5.0.min.js?version=1.10.10"></script>
     <link rel="stylesheet" href="https://www.buquebus.com/resources_portal/Bqb/resources/css/styles_bqb.css?v=1.10.10">
     <link rel="stylesheet" href="modalresumen.css">
+
+    <style>
+        /* A MODO DE EJEMPLO - SOLO PARA MOSTRAR EL FUNCIONAMIENTO */
+        #grid-ida,
+        #grid-vuelta {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,38 +32,59 @@
         <![endif]-->
 
     <section>
-        <img src="desktop.png" alt="">
+        <img src="desktop-header.jpg" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-search.jpg" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-grid-ida.jpg" id="grid-ida" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-grid-vuelta.jpg" id="grid-vuelta" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-footer.jpg" alt="" class="desktop" style="width: 100%;">
+        <img src="bqb-mobile.png" alt="" class="mobile" style="width: 100%;">
     </section>
 
-    <section id="caja-resumen" class="active">
-        <button class="btn" id="toggle-expandir" data-bs-toggle="modal" data-bs-target="#modalResumen">
+    <!-- CAJA DE REUSMEN DE COMPRA -->
+    <section id="cluster-resumen" class="">
 
+        <!-- BUTTON PARA ABRIR EL RESUMEN EXTENDIDO-->
+        <button class="btn" id="toggle-expandir" data-bs-toggle="modal" data-bs-target="#modalResumen">
         </button>
 
+
+        <!-- CONTENEDOR INTERNO DE LA CAJA -->
         <div class="bqb-container">
             <div class="bqb-row">
                 <div class="bqb-col-md-6">
                     <div class="bqb-row">
+
+                        <!-- ITINERARIO -->
                         <div class="bqb-col-md-6 resumen-itinerario">
+
+                            <!-- IDA -->
                             <div class="tramo">
                                 <p class="titulo">Ida</p>
-                                <p>Buenos Aires - Montevideo / 06-12-2022 / 07:30hs</p>
+                                <p class="tramo-ida">Buenos Aires - Montevideo / 06-12-2022 / 07:30hs</p>
                             </div>
+
+                            <!-- VUELTA -->
                             <div class="tramo">
                                 <p class="titulo">Vuelta</p>
-                                <p>Seleccione la vuelta</p>
+                                <p class="tramo-vuelta">Seleccione la vuelta</p>
                             </div>
                         </div>
+                        <!-- FIN ITINERARIO -->
+
+                        <!-- PRECIO -->
                         <div class="bqb-col-md-6 resumen-precio">
                             <p><strong>Precio por adulto</strong></p>
                             <p class="precio-pax">ARS 27.540</p>
                             <p>2 adultos / 1 menor / 1 infante / 1 vehículo</p>
                         </div>
+                        <!-- FIN PRECIO -->
                     </div>
                 </div>
 
                 <div class="bqb-col-md-6">
                     <div class="bqb-row">
+
+                        <!-- DESGLOSE PRECIO -->
                         <div class="bqb-col-md-6 resumen-desglose">
                             <div class="item">
                                 <p> 2 adultos <span id="price-suma-adultos">ARS 50.282</span></p>
@@ -68,41 +98,56 @@
                             <div class="item">
                                 <p> 2 vehículos <span id="price-suma-vehiculos">ARS 50.282</span></p>
                             </div>
+
+                            <!-- IMPUESTOS -->
                             <div class="item">
                                 <p> Impuestos / Tasas <span id="price-suma-impuestos">ARS 50.282</span></p>
                             </div>
                         </div>
+                        <!-- FIN DESGLOSE PRECIO -->
 
+                        <!-- PRECIO FINAL / COMPRAR -->
                         <div class="offset-xl-1 bqb-col-xl-5 resumen-comprar">
                             <div class="precio-final">
                                 <p>Precio final</p>
-                                <p>
-                                    <div id="precio-final-cifra">ARS 60.540</div>
+
+                                <!-- CIFRA PRECIO FINAL -->
+                                <p id="precio-final-cifra">ARS 60.540
                                 </p>
                             </div>
+
+                            <!-- CONTENDOR BOTÓN COMPRAR -->
                             <div class="cont-btn-next">
                                 <a href="#">
-                                    <button id="" disabled class="button-primary " type="button"> Seleccionar vuelta
+                                    <button id="" disabled class="button-primary bqb-btn-comprar" type="button">
+                                        Seleccionar vuelta
                                     </button>
                                 </a>
-
                             </div>
                         </div>
+                        <!-- FIN PRECIO FINAL / COMPRAR -->
+
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <!-- FIN CONTENEDOR INTERNO DE LA CAJA -->
 
-    <!-- Modal -->
+    </section>
+    <!-- FIN CAJA DE RESUMEN DE COMPRA -->
+
+    <!-- Modal RESUMEN EXTENDIDO -->
     <div class="modal fade" id="modalResumen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Detalle de viaje</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" id="func">
+                        <span aria-hidden="true">×</span> </button>
                 </div>
                 <div class="modal-body">
+
+                    <!-- DETALLE IDA -->
                     <div class="bqb-grid-fares">
                         <div class="fares-cluster">
                             <div class="cluster-main">
@@ -124,6 +169,13 @@
                                     </ul>
                                     <div class="body-details">Bus a Colonia + Buque Rápido a Buenos Aires<br>4hs 30min
                                     </div>
+
+                                    <!-- TIPO TARIFA IDA -->
+                                    <div class="body-tarifa">
+                                        Business - Tarifa Programada
+                                    </div>
+
+
                                     <div class="main-cta">
                                         <div class="cta-price">
                                             <div class="price-product"><i
@@ -135,11 +187,11 @@
                                             aria-hidden="true"></i>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-                    </div>
-                    <div class="bqb-grid-fares">
+                        <!-- FIN DETALLE IDA -->
+
+                        <!-- DETALLE VUELTA -->
                         <div class="fares-cluster">
                             <div class="cluster-main">
                                 <div class="main-body">
@@ -161,6 +213,12 @@
                                         <li>Buenos Aires</li>
                                     </ul>
                                     <div class="body-details">Buque Francisco a Buenos Aires 2hs 45min</div>
+
+                                    <!-- TIPO TARIFA VUELTA -->
+                                    <div class="body-tarifa">
+                                        Business - Tarifa Programada
+                                    </div>
+
                                     <div class="main-cta">
                                         <div class="cta-price">
                                             <div class="price-product"><i
@@ -175,23 +233,101 @@
                             </div>
                         </div>
                     </div>
+                    <!-- FIN DETALLE VUELTA -->
+
+                    <!-- DETALLE PRECIO -->
                     <div class="bqb-price-detail">
                         <h5>Pasajes</h5>
 
-                    <div class="price-detail-item">
-                        <div class="price-detail-item-unit"><span class="tipo">2 adultos</span><span>(ARS 24.400 x 2)</span></div>
-                        <div class="price-detail-item-price"><span>ARS 150.000</span></div>
-                    </div>
+                        <div class="price-detail-item">
+                            <div class="price-detail-item-unit"><span class="tipo">2 adultos</span><span>(ARS 24.400 x
+                                    2)</span></div>
+                            <div class="price-detail-item-ammount"><span>ARS 150.000</span></div>
+                        </div>
+
+                        <div class="price-detail-item">
+                            <div class="price-detail-item-unit"><span class="tipo">1 infante</span><span></span></div>
+                            <div class="price-detail-item-ammount"><span>ARS 15.000</span></div>
+                        </div>
+
+                        <div class="price-detail-item">
+                            <div class="price-detail-item-unit"><span class="tipo">1 menor</span><span></span></div>
+                            <div class="price-detail-item-ammount"><span>ARS 150.000</span></div>
+                        </div>
+
+                        <div class="price-detail-item">
+                            <div class="price-detail-item-unit"><span class="tipo">1 vehículo</span><span></span></div>
+                            <div class="price-detail-item-ammount"><span>ARS 150.000</span></div>
+                        </div>
+
+                        <div class="price-detail-item">
+                            <div class="price-detail-item-unit"><span class="tipo">Impuestos, tasas y cargos
+                                </span><br><span>Incluye Impto. PAIS y Percepciones RG 4815 y 5272</span></div>
+                            <div class="price-detail-item-ammount"><span>ARS 150.000</span></div>
+                        </div>
+
+                        <hr>
+
+                        <!-- PRECIO FINAL TOTAL -->
+                        <div class="price-detail-final">
+                            <p>Precio final total</p>
+                            <p>ARS 125.540</p>
+                        </div>
+
+                        <!-- CONTENDOR BOTÓN COMPRAR -->
+                        <div class="cont-btn-next">
+                            <a href="#">
+                                <button id="" disabled="" class="button-primary bqb-btn-comprar " type="button">
+                                    Seleccionar vuelta
+                                </button>
+                            </a>
+
+                        </div>
                     </div>
                 </div>
-              
+
             </div>
         </div>
     </div>
+    <!-- FIN MODAL RESUMEN EXTENDIDO -->
+
 
     <script
         src="https://www.buquebus.com/Portal/resources/Bqb/js/bootstrap.bundle.min.js;jsessionid=EDC970C259ACD114353AE8BCF5714AA4?version=1.10.10"
         async defer></script>
+
+
+    <script>
+        /* A MODO DE EJEMPLO - SOLO PARA MOSTRAR EL FUNCIONAMIENTO */
+
+        const cajaResumen = document.getElementById('cluster-resumen')
+        let gridIda = document.getElementById('grid-ida');
+        let gridVuelta = document.getElementById('grid-vuelta');
+
+        let btnsComprar = document.querySelectorAll('.bqb-btn-comprar');
+        let datosVuelta = document.querySelectorAll('.datos-vuelta');
+
+        gridIda.addEventListener('click', function () {
+            if (!cajaResumen.classList.contains('active')) {
+                cajaResumen.classList.add('active');
+                gridVuelta.scrollIntoView();
+            }
+        });
+        gridVuelta.addEventListener('click', function () {
+
+            if (cajaResumen.classList.contains('active')) {
+                console.log(btnsComprar)
+                for (i = 0; i < btnsComprar.length; ++i) {
+                    if (cajaResumen.classList.contains('active')) {
+                        btnsComprar[i].innerHTML = "Comprar";
+                        btnsComprar[i].disabled = false;
+                        document.querySelector('.tramo-vuelta').innerHTML =
+                            "Montevideo - Buenos Aires / 14-12-2022 / 17:30hs";
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
