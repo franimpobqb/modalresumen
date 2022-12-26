@@ -44,7 +44,7 @@
     margin-bottom: 0;
 }
 
-.resumen-itinerario .itinerario-tramo:first-child {
+.resumen-itinerario .tramo:first-child {
     margin-bottom: .75rem;
 }
 
@@ -52,6 +52,7 @@
     font-weight: bold;
     text-transform: uppercase;
     padding: 0;
+    color: #0079cc;
 }
 
 #cluster-resumen .precio-pax {
